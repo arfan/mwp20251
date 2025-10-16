@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
         buttonMarvel = findViewById(R.id.button_marvel);
         buttonBumiLangit = findViewById(R.id.button_bumilangit);
 
+        // Load default fragment when activity starts
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container_view, DcFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .commit();
+        }
+
         buttonDc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
